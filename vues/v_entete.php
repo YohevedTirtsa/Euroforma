@@ -1,5 +1,6 @@
 <?php
 /**
+<<<<<<< HEAD
  * Vue entete
  *
  * PHP Version 7
