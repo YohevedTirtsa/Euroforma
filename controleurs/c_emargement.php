@@ -10,3 +10,8 @@ $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 if (!$action) {
     $action = 'afficheSeances';
 }
+switch ($action) {
+case 'afficheSeances':
+    include 'vues/v_.php';
+    break;
+}
