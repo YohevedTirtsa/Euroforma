@@ -23,7 +23,7 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 col-md-12" style="text-align: center">
-                        <a href="index.php?uc=emargement&action=afficheSeance"
+                        <a href="index.php?uc=emargement&action=afficheSeances"
                            class="btn btn-success btn-lg" role="button">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <br>Emargement</a>

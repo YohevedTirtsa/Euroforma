@@ -31,6 +31,8 @@ case 'connexion':
 case 'accueil':
     include 'controleurs/c_accueil.php';
     break;
-
+case 'emargement':
+    include 'controleurs/c_emargement.php';
+    break;
 }
 require 'vues/v_pied.php';
