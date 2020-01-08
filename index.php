@@ -9,6 +9,7 @@
  * @author    Yoheved Tirtsa Touati
  * @author    Beth Sefer
  */
+
 require_once 'includes/fct.inc.php';//Besoin en préliminaire
 require_once 'includes/class.pdoeuro.inc.php';//idem
 session_start(); // Variable Super Globale
@@ -17,11 +18,12 @@ $estConnecte = estConnecte();
 require 'vues/v_entete.php';//requis
 
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);//on verifie le contenu de uc
-if ($uc && !$estConnecte) {
+if (empty($uc) && !$estConnecte) {
     $uc = 'connexion';
-} else if (empty($uc)) {
+} else if ($estConnecte) {
     $uc = 'accueil';
 }
+
 switch ($uc) {
 case 'connexion':
     include 'controleurs/c_connexion.php';
@@ -29,4 +31,6 @@ case 'connexion':
 case 'accueil':
     include 'controleurs/c_accueil.php';
     break;
+
 }
+require 'vues/v_pied.php';

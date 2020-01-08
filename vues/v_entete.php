@@ -1,6 +1,5 @@
 <?php
 /**
-<<<<<<< HEAD
  * Vue entete
  *
  * PHP Version 7
@@ -13,17 +12,17 @@
 
 ?>
 <!DOCTYPE html>
-<html>
+<html lang="fr-FR">
   <head>
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta charset="UTF-8">
       <title>Euroforma</title>
       <meta name="description" content="">
-      <meta name="author" content="">
+      <meta name="author" content="Yoheved Touati">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="./styles/bootstrap/bootstrap.css" rel="stylesheet">
       <link href="./styles/style.css" rel="stylesheet">
   </head>
+
   <body>
       <div class="container">
           <?php

@@ -27,7 +27,7 @@
                                     <i class="glyphicon glyphicon-user"></i>
                                 </span>
                                 <input class="form-control" placeholder="Login"
-                                       name="login" type="text" maxlength="45">
+                                       name="login" type="text" maxlength="12">
                             </div>
                         </div>
                         <div class="form-group">
@@ -37,7 +37,7 @@
                                 </span>
                                 <input class="form-control"
                                        placeholder="Mot de passe" name="mdp"
-                                       type="password" maxlength="45">
+                                       type="password" maxlength="12">
                             </div>
                         </div>
                         <input class="btn btn-lg btn-success btn-block"

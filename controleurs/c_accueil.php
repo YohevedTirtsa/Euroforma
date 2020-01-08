@@ -11,14 +11,11 @@
  * @author    Beth Sefer
  */
 
+$estConnecte= estConnecte();
 
-$estVisiteurConnecte= estVisiteurConnecte();
-$estComptableConnecte= estComptableConnecte();
-
-if ($estVisiteurConnecte) {
-    include 'vues/v_accueilVisiteur.php';
-} elseif ($estComptableConnecte){
-    include 'vues/v_accueilComptable.php';
+if ($estConnecte) {
+    include 'vues/v_accueil.php';
 } else{
     include 'vues/v_connexion.php';
 }
+

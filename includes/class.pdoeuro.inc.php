@@ -14,6 +14,8 @@ class PdoEuro
 {
     private static $serveur = 'mysql:host=localhost';
     private static $bdd = 'dbname=euroforma';
+    private static $user = 'root';
+    private static $mdp = '';
     private static $monPdo;
     private static $monPdoEuro = null;
 
@@ -64,7 +66,7 @@ class PdoEuro
      */
     public function getInfosUtilisateur($login, $mdp)
     {
-        $requetePrepare = PdoGsb::$monPdo->prepare(
+        $requetePrepare = PdoEuro::$monPdo->prepare(
             'SELECT utilisateur.nom AS nom '
             . 'FROM utilisateur '
             . 'WHERE utilisateur.login = :unLogin AND utilisateur.mdp = :unMdp'

@@ -31,7 +31,7 @@ case 'valideConnexion':
        if (is_array($utilisateur)){
        $nom = $utilisateur['nom'];
        }
-           connecter($id, $nom, $prenom, $statut);
+           connecter($nom);
            header('Location: index.php');
        }
    break;

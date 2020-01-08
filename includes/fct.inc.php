@@ -17,7 +17,7 @@
  */
 function estConnecte()
 {
-    return isset($_SESSION['idUtilisateur']);//isset: question: Est qu il y a un IdUtilisateur dans la SuperGlobable ?(vrai ou faux?)
+    return isset($_SESSION['nom']);//isset: question: Est qu il y a un IdUtilisateur dans la SuperGlobable ?(vrai ou faux?)
 }
 /**
 * Ajoute le libellé d'une erreur au tableau des erreurs
@@ -43,4 +43,13 @@ function ajouterErreur($msg)
 function connecter($nom)
 {
   $_SESSION['nom'] = $nom;
+}
+/**
+ * Détruit la session active
+ *
+ * @return null
+ */
+function deconnecter()
+{
+    session_destroy();
 }
