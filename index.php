@@ -20,7 +20,7 @@ require 'vues/v_entete.php';//requis
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);//on verifie le contenu de uc
 if (empty($uc) && !$estConnecte) {
     $uc = 'connexion';
-} else if ($estConnecte) {
+} else if (empty($uc)) {
     $uc = 'accueil';
 }
 
@@ -34,5 +34,8 @@ case 'accueil':
 case 'emargement':
     include 'controleurs/c_emargement.php';
     break;
+case 'deconnexion':
+    include 'controleurs/c_deconnexion.php';
+    break; 
 }
 require 'vues/v_pied.php';

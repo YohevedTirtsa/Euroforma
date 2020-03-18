@@ -47,7 +47,7 @@
                               </a>
                           </li>
                           <li <?php if ($uc == 'emargement') { ?>class="active"<?php } ?>>
-                              <a href="index.php?uc=gererFrais&action=saisirFrais">
+                              <a href="index.php?uc=emargement&action=afficheSeances">
                                   <span class="glyphicon glyphicon-pencil"></span>
                                   Emargement
                               </a>

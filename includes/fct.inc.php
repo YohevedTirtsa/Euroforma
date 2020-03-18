@@ -1,5 +1,5 @@
 <?php
-/**
+/*
  * Fonctions pour l'application GSB
  *
  * PHP Version 7
@@ -52,4 +52,23 @@ function connecter($nom)
 function deconnecter()
 {
     session_destroy();
+}
+
+/**
+ * retourne oui si l'eleve est present (cas cochée),sinon non
+ * @param type $presence
+ * @param type $total
+ * @return string
+ */
+function presence($presence,$total){
+    $pres=array();
+    //initialisation du tableau a NON
+    for($i=0; $i<$total[0]; $i++ ){
+      $pres[$i]='NON';  
+    }
+    // on remplace les eleves coches par OUI
+    foreach ($presence as $value) { 
+        $pres[$value-1]='OUI';
+    }                  
+    return $pres;
 }

@@ -1098,7 +1098,7 @@ textarea {
 }
  
 a {
-  color:#88253C;
+  color:#88253c;
   text-decoration: none;
 }
 
@@ -1951,7 +1951,7 @@ pre code {
     width: 75%;
   }
   .col-md-8 {
-    width: 66.66666667%;
+    width: 75%;
   }
   .col-md-7 {
     width: 58.33333333%;
@@ -1963,7 +1963,7 @@ pre code {
     width: 41.66666667%;
   }
   .col-md-4 {
-    width: 33.33333333%;
+    width: 25%;
   }
   .col-md-3 {
     width: 25%;
@@ -3128,18 +3128,18 @@ fieldset[disabled] .btn-default.focus {
 .btn-primary:focus,
 .btn-primary.focus {
   color: #fff;
-  background-color: #286090;
-  border-color: #122b40;
+  background-color: #88253C;
+  border-color: #88253C;
 }
 .btn-primary:hover {
   color: #fff;
-  background-color: #286090;
-  border-color: #204d74;
+  background-color: #88253C;
+  border-color: #88253C;
 }
 .btn-primary-c:hover {
   color: #fff;
-  background-color: #ff4500;
-  border-color: #ff4500;
+  background-color: #88253C;
+  border-color: #88253C;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -4108,8 +4108,7 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav-pills > li.active > a,
 .nav-pills > li.active > a:hover,
 .nav-pills > li.active > a:focus {
-  color: #fff;
-  background-color: #337ab7;
+  color: #88253c;
 }
 .nav-pills-c > li {
  float: left;
@@ -5098,9 +5097,9 @@ a.thumbnail.active {
   color: #2b542c;
 }
 .alert-info {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #a94442;
+  background-color: #F5F5F5;
+  border-color: #F5F5F5;
 }
 .alert-info hr {
   border-top-color: #a6e1ec;
@@ -5778,12 +5777,12 @@ button.list-group-item-danger.active:focus {
   border-bottom-color: #d6e9c6;
 }
 .panel-info {
-  border-color: #bce8f1;
+  border-color: #cdd1c9;
 }
 .panel-info > .panel-heading {
-  color: #31708f;
-  background-color: #d9edf7;
-  border-color: #bce8f1;
+  color: #6E2347;
+  background-color: #cdd1c9;
+  border-color: #6E2347;
 }
 .panel-info > .panel-heading + .panel-collapse > .panel-body {
   border-top-color: #bce8f1;
@@ -6795,4 +6794,16 @@ button.close {
     display: none !important;
   }
 }
+.motif{
+    float: right;
+    margin-right: 30px !important;
+}
+.cocher,.presence{
+    float: right;
+    margin-right: 770px !important ;  
+}
+.tableau {
+   
+}
+
 /*# sourceMappingURL=bootstrap.css.map */
