@@ -6,8 +6,7 @@
  *
  * @category  Stages 2eme année
  * @package   Euroforma
- * @author    Yoheved Tirtsa Touati
- * @author    Beth Sefer
+ * @author    Tsipora Schvarcz
  */
 ?>
 <div id="accueil" style="text-align: center">
@@ -23,19 +22,19 @@
             <div class="panel-body">
                 <div class="row">
                     <div class="col-xs-12 col-md-12" style="text-align: center">
-                        <a href="index.php?uc=emargement&action=afficheSeance"
+                        <a href="index.php?uc=&action="
                            class="btn btn-success btn-lg" role="button">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <br>Emargement</a>
-                        <a href="index.php?uc=etatFrais&action=selectionnerMois"
+                        <a href="index.php?uc=genererCR&action=choixEleve"
                            class="btn btn-primary btn-lg" role="button">
                             <span class="glyphicon glyphicon-list-alt"></span>
                             <br>Compte-Rendu</a>
-                        <a href="index.php?uc=gererFrais&action=saisirFrais"
+                        <a href="index.php?uc=&action="
                            class="btn btn-success btn-lg" role="button">
                             <span class="glyphicon glyphicon-pencil"></span>
                             <br>Factures OPCA</a>
-                        <a href="index.php?uc=etatFrais&action=selectionnerMois"
+                        <a href="index.php?uc=&action="
                            class="btn btn-primary btn-lg" role="button">
                             <span class="glyphicon glyphicon-list-alt"></span>
                             <br>Formulaires administratifs</a>

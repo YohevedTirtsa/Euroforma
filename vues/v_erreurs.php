@@ -7,8 +7,7 @@
  *
  * @category  Stages 2eme année
  * @package   Euroforma
- * @author    Yoheved Tirtsa Touati
- * @author    Beth Sefer
+ * @author    Tsipora Schvarcz
 =======
  * Vue Erreurs
  *
@@ -16,7 +15,7 @@
  *
  * @category  PPE
  * @package   GSB
- * @author    Yoheved Tirtsa Touati
+ * @author    Tsipora Schvarcz
 >>>>>>> origin/master
  */
 ?>

@@ -6,8 +6,7 @@
  *
  * @category  Stages 2eme année
  * @package   Euroforma
- * @author    Yoheved Tirtsa Touati
- * @author    Beth Sefer
+ * @author    Tsipora Schvarcz
  */
 $action = filter_input(INPUT_GET, 'action', FILTER_SANITIZE_STRING);
 if (!$action) {

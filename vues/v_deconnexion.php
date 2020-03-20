@@ -4,10 +4,9 @@
  *
  * PHP Version 7
  *
-* @category  PPE
+ * @category  Stages 2eme année
  * @package   GSB
- * @author    Yoheved Tirtsa Touati
- * @author    Beth Sefer
+ * @author    Tsipora Schvarcz
  */
 deconnecter();
 ?>

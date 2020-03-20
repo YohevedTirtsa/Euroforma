@@ -6,10 +6,8 @@
  *
  * @category  Stages 2eme année
  * @package   Euroforma
- * @author    Yoheved Tirtsa Touati
- * @author    Beth Sefer
+ * @author    Tsipora Schvarcz
  */
-
 ?>
 <!DOCTYPE html>
 <html lang="fr-FR">
@@ -17,7 +15,7 @@
       <meta charset="UTF-8">
       <title>Euroforma</title>
       <meta name="description" content="">
-      <meta name="author" content="Yoheved Touati">
+      <meta name="author" content="Tsipora Schvarcz">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <link href="./styles/bootstrap/bootstrap.css" rel="stylesheet">
       <link href="./styles/style.css" rel="stylesheet">
@@ -42,38 +40,32 @@
                       <ul class="nav nav-pills pull-right" role="tablist">
                           <li <?php if (!$uc || $uc == 'accueil') { ?>class="active" <?php } ?>>
                               <a href="index.php">
-                                  <span class="glyphicon glyphicon-home"></span>
                                   Accueil
                               </a>
                           </li>
                           <li <?php if ($uc == 'emargement') { ?>class="active"<?php } ?>>
-                              <a href="index.php?uc=gererFrais&action=saisirFrais">
-                                  <span class="glyphicon glyphicon-pencil"></span>
+                              <a href="index.php?uc=gererFrais&action=saisirFrais">   
                                   Emargement
                               </a>
                           </li>
-                          <li <?php if ($uc == '') { ?>class="active"<?php } ?>>
-                              <a href="index.php?uc=etatFrais&action=selectionnerMois">
-                                  <span class="glyphicon glyphicon-list-alt"></span>
+                          <li <?php if ($uc == '') { } ?>>
+                              <a href="index.php?uc=genererCR&action=choixEleve">
                                   Compte rendu
                               </a>
                           </li>
-                          <li <?php if ($uc == '') { ?>class="active"<?php } ?>>
-                              <a href="index.php?uc=etatFrais&action=selectionnerMois">
-                                  <span class="glyphicon glyphicon-list-alt"></span>
+                          <li <?php if ($uc == '') { } ?>>
+                              <a href="index.php?uc=etatFrais&action=selectionnerMois"> 
                                   Facture OPCA
                               </a>
                           </li>
-                          <li <?php if ($uc == '') { ?>class="active"<?php } ?>>
-                              <a href="index.php?uc=etatFrais&action=selectionnerMois">
-                                  <span class="glyphicon glyphicon-list-alt"></span>
+                          <li <?php if ($uc == '') { } ?>>
+                              <a href="index.php?uc=etatFrais&action=selectionnerMois"> 
                                   Formulaires administratifs
                               </a>
                           </li>
                           <li
                           <?php if ($uc == 'deconnexion') { ?>class="active"<?php } ?>>
                               <a href="index.php?uc=deconnexion&action=demandeDeconnexion">
-                                  <span class="glyphicon glyphicon-log-out"></span>
                                   Déconnexion
                               </a>
                           </li>

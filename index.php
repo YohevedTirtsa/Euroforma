@@ -6,8 +6,7 @@
  *
  * @category  Stages 2eme année
  * @package   Euroforma
- * @author    Yoheved Tirtsa Touati
- * @author    Beth Sefer
+ * @author    Tsipora Schvarcz
  */
 
 require_once 'includes/fct.inc.php';//Besoin en préliminaire
@@ -19,9 +18,9 @@ require 'vues/v_entete.php';//requis
 
 $uc = filter_input(INPUT_GET, 'uc', FILTER_SANITIZE_STRING);//on verifie le contenu de uc
 if (empty($uc) && !$estConnecte) {
-    $uc = 'connexion';
-} else if ($estConnecte) {
-    $uc = 'accueil';
+   $uc = 'connexion';
+} else if (empty($uc)) {
+   $uc = 'accueil';
 }
 
 switch ($uc) {
@@ -31,6 +30,10 @@ case 'connexion':
 case 'accueil':
     include 'controleurs/c_accueil.php';
     break;
+case 'genererCR':
+    include 'controleurs/c_genererCR.php';
+    break;
+
 
 }
 require 'vues/v_pied.php';
