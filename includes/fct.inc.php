@@ -71,7 +71,6 @@ function getMois($date)
 }
 function calculPourcentage($nombre,$total)
     { 
-    echo "total : ".$total;
       $pourcentage = ($nombre*100)/$total;
       return $pourcentage;
     } 

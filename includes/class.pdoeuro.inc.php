@@ -90,19 +90,34 @@ class PdoEuro
         return $requetePrepare->fetchAll();
     }
     /**
-     * Retourne le nom et le prenom de l'employeur qui se charge de l'élève choisi.
-     * @param string $eleve    id de l'élève
-     * @return array           tableau contenant nom et prenom de l'employeur.
+     * Retourne le nom et le prenom de l'eleve.
+     * @param string $idEleve    id de l'élève
+     * @return array        tableau contenant nom et prenom de l'eleve.    
      */
-    public function getEmployeur($eleve){
+    public function getNomEleve($idEleve){
         $requetePrepare = PdoEuro::$monPdo->prepare(
-            'SELECT employeur.nom as nom,employeur.prenom as prenom'
+            'SELECT eleve.nom ,eleve.prenom '
+            . 'FROM eleve '
+            . 'WHERE eleve.idEleve=:unId '   
+        );
+        $requetePrepare->bindParam(':unId', $idEleve , PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch();
+    } 
+    /**
+     * Retourne le nom et le prenom de l'employeur qui se charge de l'élève choisi.
+     * @param string $idEleve    id de l'élève
+     * @return array             tableau contenant nom et prenom de l'employeur.
+     */
+    public function getEmployeur($idEleve){
+        $requetePrepare = PdoEuro::$monPdo->prepare(
+            'SELECT employeur.nom ,employeur.prenom '
             . 'FROM employeur join eleve using(idEmployeur)'
             . 'WHERE eleve.idEleve=:unId'    
         );
-        $requetePrepare->bindParam(':unId', $eleve , PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unId', $idEleve , PDO::PARAM_STR);
         $requetePrepare->execute();
-        return $requetePrepare->fetchAll();
+        return $requetePrepare->fetch();
     }           
     /**
      * Retourne le pourcentage de présence de l'eleve choisi durant le mois passé.
@@ -128,94 +143,87 @@ class PdoEuro
         return $requetePrepare->fetch();
     }*/
     /**
-     * Retourne la duree des seances ou leleve etait present
+     * Retourne la duree des seances ou l'eleve etait present
      * @param type $eleve
      * @param type $mois
      * @return type
      */
     public function getDureePresence($eleve,$mois){
         $requetePrepare = PdoEuro::$monPdo->prepare(
-                'select sum(durée)'
-                .'from seance join emargement'
-                .'where seance.idSeance=emargement.idSeance'
-                .'and emargement.idEleve=:unEleve'
-                .'and emargement.presence="oui"'
-                .'and date LIKE CONCAT("%",:unMois');
-        $requetePrepare->bindParam(':unEleve', $eleve, PDO::PARAM_STR);
+                "select sum(durée)"
+                ."from seance join emargement using(idSeance)"
+                ."where emargement.idEleve='$eleve'"
+                ."and emargement.presence='oui'"
+                ."and date LIKE CONCAT('%',:unMois)"
+                );
+        //$requetePrepare->bindParam(':unEleve', $eleve, PDO::PARAM_STR);
         $requetePrepare->bindParam(':unMois', $mois , PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
     /**
      * Retourne la somme de la durée des seances
-     * @param type $eleve
-     * @param type $mois
+     * @param type $mois       le mois actuel
      * @return type
      */
      public function getDureeSeancesTotal($mois){
         $requetePrepare = PdoEuro::$monPdo->prepare(
-                'select sum(durée) as reqTotal'
-                .'from seance'
-                .'where date=:unMois');
-        $requetePrepare->bindParam(':unMois', $mois , PDO::PARAM_STR);
-        $requetePrepare->execute();
-        return $requetePrepare->fetch();
-    }
-    /**
-     * Retourne le nombre d'absence de l'élève choisi durant le mois passé.
-     * @param type $eleve
-     */
-    public function getNbAbsences($eleve){
-        $requetePrepare = PdoEuro::$monPdo->prepare(
-                'SELECT count(presence)'
-                .'FROM emargement'
-                .'WHERE presence="non"'
-                .'AND idEleve=:unEleve'
-        );
-        $requetePrepare->bindParam(':unEleve', $eleve , PDO::PARAM_STR);
-        $requetePrepare->execute();
-        return $requetePrepare->fetch();
-    }
-    /**
-     * Retourne le nombre d'absence de l'élève choisi durant le mois passé.
-     * @param type $eleve
-     */
-    public function getNbPresence($eleve){
-        $requetePrepare = PdoEuro::$monPdo->prepare(
-                'SELECT count(presence)'
-                .'FROM emargement'
-                .'WHERE presence="oui"'
-                .'AND idEleve=:unEleve'
-        );
-        $requetePrepare->bindParam(':unEleve', $eleve , PDO::PARAM_STR);
+                'select sum(durée)'
+                .'from seance '
+                ."where date LIKE CONCAT('%','$mois')"
+                );
+        //$requetePrepare->bindParam(':unMois', $mois , PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
     /**
      * Retourne l'adresse mail de l'employeur en question.
-     * @param type $eleve
+     * @param type $idEleve
      * @return type
      */
-    public function getEmailEmployeur($eleve){
+    public function getEmailEmployeur($idEleve){
         $requetePrepare = PdoEuro::$monPdo->prepare(
-                'SELECT employeur.email'
-                .'FROM employeur join eleve using(idEmployeur)'
-                .'WHERE employeur.idEmployeur=eleve.idEmployeur'
-                .'AND idEleve=:unEleve'
+            'SELECT employeur.email '
+            . 'FROM employeur join eleve using(idEmployeur)'
+            . 'WHERE eleve.idEleve=:unId'    
         );
-        $requetePrepare->bindParam(':unEleve', $eleve , PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unId', $idEleve , PDO::PARAM_STR);
+        $requetePrepare->execute();
+        return $requetePrepare->fetch()[0];
+    }           
+    /**
+     * Retourne le nombre d'absence de l'élève choisi durant le mois passé.
+     * @param type $idEleve
+     */
+    public function getNbAbsences($idEleve,$mois){
+        $requetePrepare = PdoEuro::$monPdo->prepare(
+                'SELECT count(presence)'
+                .'FROM emargement join seance using(idSeance)'
+                .'WHERE presence="non"'
+                ."AND idEleve='$idEleve'"
+                .'AND date LIKE CONCAT("%",:unMois)'
+        );
+        //$requetePrepare->bindParam(':unEleve', $idEleve , PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unMois', $mois , PDO::PARAM_STR);
         $requetePrepare->execute();
         return $requetePrepare->fetch();
     }
-    
-    public function getNomEleve($id){
+    /**
+     * Retourne le nombre de presence de l'élève choisi durant le mois passé.
+     * @param type $idEleve
+     */
+    public function getNbPresence($idEleve,$mois){
         $requetePrepare = PdoEuro::$monPdo->prepare(
-            'SELECT nom,prenom'
-            . 'FROM eleve '
-            . 'WHERE idEleve=:id'
+                'SELECT count(presence)'
+                .'FROM emargement join seance using(idSeance)'
+                .'WHERE presence="oui"'
+                ."AND idEleve='$idEleve'"
+                .'AND date LIKE CONCAT("%",:unMois)'
         );
-        $requetePrepare->bindParam(':id', $id , PDO::PARAM_STR);
+        //$requetePrepare->bindParam(':unId', $idEleve , PDO::PARAM_STR);
+        $requetePrepare->bindParam(':unMois', $mois , PDO::PARAM_STR);
         $requetePrepare->execute();
-        return $requetePrepare->fetchAll();
+        return $requetePrepare->fetch();
     }
+          
 }
