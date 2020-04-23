@@ -28,12 +28,12 @@ Que de bonne choses, <br><br>
             <input name="lstEleves" type="hidden" id="lstEleves" class="form-control" value="<?php echo $idEleve ?>">
             <button class="btn btn-success" type="submit" link="">Telecharger PDF</button>
 </form>
-<form method="post" 
+<!--<form method="post" 
               action="index.php?uc=genererCR&action=envoiPDF" 
               role="form">    
     <input name="lstEleves" type="hidden" id="lstEleves" class="form-control" value="<?php echo $idEleve ?>">
     <input class="btn btn-success" type="submit"value="Envoi du pdf"/>
-</form>
+</form>-->
 
  
  
